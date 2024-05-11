@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="TemplateMo">
+    <link href="https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700,800,900&display=swap" rel="stylesheet">
+
+    <title>Sumo-Rizer</title>
+
+    <!-- Additional CSS Files -->
+    <link rel="stylesheet" type="text/css" href="assets/css/bootstrap.min.css">
+
+    <link rel="stylesheet" type="text/css" href="assets/css/font-awesome.css">
+
+    <link rel="stylesheet" href="assets/css/templatemo-lava.css">
+
+    <link rel="stylesheet" href="assets/css/owl-carousel.css">
+
+</head>
+
+<body>
+
+    <!-- ***** Preloader Start ***** -->
+    <div id="preloader">
+        <div class="jumper">
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+    </div>
+    <!-- ***** Preloader End ***** -->
+
+
+    <!-- ***** Header Area Start ***** -->
+    <header class="header-area header-sticky">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <nav class="main-nav">
+                        <!-- ***** Logo Start ***** -->
+                        <a href="index.html" class="logo">
+                            Sumo-Rizer
+                        </a>
+                        <!-- ***** Logo End ***** -->
+                        
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- ***** Header Area End ***** -->
+
+
+    <!-- ***** Welcome Area Start ***** -->
+    <div class="welcome-area" id="welcome">
+
+        <!-- ***** Header Text Start ***** -->
+        <div class="header-text">
+            <div class="container">
+                <div class="row">
+                    <div class="left-text col-lg-6 col-md-12 col-sm-12 col-xs-12"
+                        data-scroll-reveal="enter left move 30px over 0.6s after 0.4s">
+                        <h1>Summarize any <em style="color:#e6534c;">YouTube Video</em> in seconds</h1>
+						<form id="youtube-url-form">
+						  <input type="text" id="youtube-url-input" name="youtube-url-input" placeholder="YouTube Link">
+						  <input class="main-button-slider" type="submit" value="Submit" name="submit">
+              <br><br>
+              <div id="summary-container"></div>
+              <script>
+                function summarizeVideo(event) {
+                  var summaryContainer = document.getElementById('summary-container');
+                  summaryContainer.innerHTML = `<p>Loading...</p>`;
+                  // create an XMLHttpRequest object
+                  var xhr = new XMLHttpRequest();
+                
+                  // get the youtube url from the user
+                  var inputURLField = document.getElementById("youtube-url-input");
+                  var youtubeUrl = inputURLField.value;
+                
+                  // open a POST request to the /summarize endpoint
+                  xhr.open('POST', '/summarize');
+                
+                  // set the request header
+                  xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+                
+                  // send the request with the youtube url as the request body
+                  xhr.send(`youtube_url=${youtubeUrl}`);
+                
+                  // handle the response
+                  xhr.onload = function () {
+                    if (xhr.status === 200) {
+                      // the request was successful! display the summary
+                      var summary = xhr.responseText;
+                      // insert the summary into the HTML
+                      var summaryContainer2 = document.getElementById('summary-container');
+                      summaryContainer2.innerHTML = `<p>${summary}</p>`;
+                    } else {
+                      // there was an error
+                      alert('Error: ' + xhr.status);
+                    }
+                  };
+                  event.preventDefault();
+                }
+                var form = document.getElementById("youtube-url-form");
+                form.addEventListener("submit", summarizeVideo);
+              </script>
+						</form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- ***** Header Text End ***** -->
+    </div>
+    <!-- ***** Welcome Area End ***** -->
+
+<!--     <div class="left-image-decor"></div> -->
+
+    <!-- ***** Features Big Item Start ***** -->
+    <section class="section" id="promotion">
+        <div class="container">
+            <div class="row">
+                <div class="left-image col-lg-5 col-md-12 col-sm-12 mobile-bottom-fix-big"
+                    data-scroll-reveal="enter left move 30px over 0.6s after 0.4s">
+                    <img src="assets/images/ytrobot2.png" class="rounded img-fluid d-block mx-auto" alt="App">
+                </div>
+                <div class="right-text offset-lg-1 col-lg-6 col-md-12 col-sm-12 mobile-bottom-fix">
+                    <ul>
+                        <li data-scroll-reveal="enter right move 30px over 0.6s after 0.4s">
+                            <img src="assets/images/about-icon-01.png" alt="">
+                            <div class="text">
+                                <h4>Great for summarizing podcasts</h4>
+                                <!--<p>Please do not redistribute this template ZIP file for a download purpose. You may <a
+                                rel="nofollow" href="https://templatemo.com/contact" target="_parent">contact</a> us for
+                            additional licensing of our template or to get a PSD file.</p>
+                            </div>-->
+                        </li>
+                        <li data-scroll-reveal="enter right move 30px over 0.6s after 0.5s">
+                            <img src="assets/images/about-icon-02.png" alt="">
+                            <div class="text">
+                                <h4>Use for summarizing the latest news/drama</h4>
+                               <!-- <p>You can <a rel="nofollow"
+                                        href="https://templatemo.com/tm-540-lava-landing-page">download Lava
+                                        Template</a> from our website. Duis viverra, ipsum et scelerisque placerat, orci
+                                    magna consequat ligula.</p>-->
+                            </div>
+                        </li>
+                        <li data-scroll-reveal="enter right move 30px over 0.6s after 0.6s">
+                            <img src="assets/images/about-icon-03.png" alt="">
+                            <div class="text">
+                                <h4>A part of a balanced diet</h4>
+                                <!--<p>Phasellus in imperdiet felis, eget vestibulum nulla. Aliquam nec dui nec augue
+                                    maximus porta. Curabitur tristique lacus.</p> -->
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- ***** Features Big Item End ***** -->
+
+
+    <!-- jQuery -->
+    <script src="assets/js/jquery-2.1.0.min.js"></script>
+
+    <!-- Bootstrap -->
+    <script src="assets/js/popper.js"></script>
+    <script src="assets/js/bootstrap.min.js"></script>
+
+    <!-- Plugins -->
+    <script src="assets/js/owl-carousel.js"></script>
+    <script src="assets/js/scrollreveal.min.js"></script>
+    <script src="assets/js/waypoints.min.js"></script>
+    <script src="assets/js/jquery.counterup.min.js"></script>
+    <script src="assets/js/imgfix.min.js"></script>
+
+    <!-- Global Init -->
+    <script src="assets/js/custom.js"></script>
+
+</body>
+</html>
